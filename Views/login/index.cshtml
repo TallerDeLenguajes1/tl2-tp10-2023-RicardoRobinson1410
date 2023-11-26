@@ -1,0 +1,18 @@
+@model tl2_tp10_2023_RicardoRobinson1410.ViewModels.LoginViewModel;
+
+<form asp-controller="Login" asp-action="Login">
+  <div class="mb-3">
+    <label asp-for="@Model.Nombre" class="form-label">Nombre de Usuario</label>
+    <input type="text" class="form-control" asp-for="@Model.Nombre">
+    <span asp-validation-for="@Model.Nombre" class="text-danger"></span>
+    <div id="emailHelp" class="form-text">Por favor ingrese el nombre de usuario</div>
+  </div>
+  <div class="mb-3">
+    <label asp-for="@Model.Contrasenia" class="form-label">Contraseña</label>
+    <input type="password" class="form-control" asp-for="@Model.Contrasenia">
+    <span asp-validation-for="@Model.Contrasenia" class="text-danger"></span>
+    <div id="emailHelp" class="form-text">Por favor ingrese la Contraseña</div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+@section Scripts{<partial name="_ValidationScriptsPartial"/>}

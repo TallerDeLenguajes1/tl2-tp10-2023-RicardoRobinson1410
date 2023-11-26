@@ -1,0 +1,26 @@
+@model tl2_tp10_2023_RicardoRobinson1410.ViewModels.CrearTableroViewModel
+<form asp-controller="Tablero" asp-action="CrearTablero">
+  <div class="form-group"> 
+    <label asp-for=@Model.Nombre>Tablero </label>
+    <input asp-for="@Model.Nombre" class="form-control" aria-describedby="TabNombre">
+    <span asp-validation-for="@Model.Nombre" class="text-danger"></span>
+    <small id="TabNombre" class="form-text text-muted">Por favor ingrese el nombre de Tablero</small>
+  </div>
+  <div class="form-group">
+    <label asp-for="@Model.Descripcion">Descripcion</label>
+    <input type="text" class="form-control" asp-for="@Model.Descripcion">
+    <span asp-validation-for="@Model.Descripcion" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="@Model.Id_Usuario_Propietario">Usuario Propietario</label>
+    <select class="form-select" asp-for="@Model.Id_Usuario_Propietario" aria-label="Default select example">
+      <option value="@null"></option>
+    @foreach (var usu in Model.ListaUsuarios)
+    {
+      <option value="@usu.Id">@usu.Nombre_De_Usuario </option>
+    }
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+@section Scripts{<partial name="_ValidationScriptsPartial"/>}

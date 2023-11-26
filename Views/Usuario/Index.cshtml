@@ -1,0 +1,44 @@
+
+@model List<tl2_tp10_2023_RicardoRobinson1410.ViewModels.IndexUsuarioViewModel>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <title>Tableros</title>
+</head>
+    <div class = 'TituloUsu'>
+        <h1>
+            Lista de Usuarios
+        </h1>
+    </div>
+
+    <div class ='ListaUsua'>
+        <button><a href="Usuario/CrearUsuario">Crear</a></button>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <td></td>
+                    <th>Nombre de Usuario</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                    <th></th>
+                    </tr>
+            </thead>
+           <tbody>
+            @foreach (var usu in Model)
+        {
+            <tr>
+            <td> <hidden @usu.Id></td>
+            <td> @usu.Nombre</td>
+            <td>@usu.Rol</td>
+            <td><a href="Usuario/ModificarUsuario?id=@usu.Id"> Modificar</a></td>
+            <td><a href="Usuario/EliminarUsuario?id=@usu.Id"> Eliminar</a></td>
+            </tr>
+        }
+            </tbody>
+        </table>
+    </div>
+    @section Scripts{<partial name="_ValidationScriptsPartial"/>}

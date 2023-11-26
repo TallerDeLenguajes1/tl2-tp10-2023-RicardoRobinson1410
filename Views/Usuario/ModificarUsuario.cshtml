@@ -1,0 +1,25 @@
+@model tl2_tp10_2023_RicardoRobinson1410.ViewModels.ModificarUsuarioViewModel
+
+<form asp-controller="Usuario" asp-action="ModificarUsuario">
+    <input hidden asp-for="@Model.Id">
+    <div class="FormularioUsuLabel">
+        <label asp-for="@Model.Nombre"></label>
+        <input asp-for="@Model.Nombre">
+    </div>
+    <div class="form-group">
+    <label asp-for="@Model.Rol"></label>
+    <select class="form-control" asp-for="@Model.Rol">
+      <option value="@rolesUsuario.administrador">Administrador</option>
+      <option value="@rolesUsuario.operador">Operador</option>
+    </select>
+  </div>
+  <div>
+    <label asp-for="@Model.Contrasenia"></label>
+        <input type="password" asp-for="@Model.Contrasenia">
+  </div>
+    <div class="FormularioUsuSubmmit">
+        <button type="submit">Submit</button>
+    </div>
+    
+</form> 
+@section Scripts{<partial name="_ValidationScriptsPartial"/>}

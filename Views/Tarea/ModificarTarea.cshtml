@@ -1,0 +1,52 @@
+@model tl2_tp10_2023_RicardoRobinson1410.ViewModels.ModificarTareaViewModel
+<form asp-controller="Tarea" asp-action="ModificarTarea">
+    <input hidden asp-for ="@Model.Id">
+  <div class="form-group">
+    <label asp-for="@Model.Nombre">Nombre Tarea</label>
+    <input type="text" class="form-control" asp-for="@Model.Nombre" placeholder="ejemplo: Limpiar los platos">
+    <span asp-validation-for="@Model.Nombre" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="@Model.Estado">Estado Tarea</label>
+    <select class="form-control" asp-for="@Model.Estado">
+      <option>ideas</option>
+      <option>toDo</option>
+      <option>doing</option>
+      <option>review</option>
+      <option>done</option>
+    </select>
+    <span asp-validation-for="@Model.Estado" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="@Model.Descripcion"> Descripcion Tarea</label>
+    <input type="text" class="form-control" asp-for="@Model.Descripcion">
+    <span asp-validation-for="@Model.Descripcion" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="@Model.Color">Color</label>
+    <input type="text" class="form-control" asp-for="@Model.Color" placeholder="ejemplo: Rojo">
+    <span asp-validation-for="@Model.Color" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="@Model.Id_Usuario_Asignado">Usuario Asignado</label>
+    <select class="form-select" asp-for="@Model.Id_Usuario_Asignado" aria-label="Default select example">
+  <option value="@null"></option>
+  @foreach(var item in Model.Usuarios)
+  {
+    <option value="@item.Id">@item.Nombre_De_Usuario</option>
+  }
+</select>
+  </div>
+  <div class="form-group">
+    <label asp-for="@Model.Id_Tablero">Usuario Asignado</label>
+    <select class="form-select" asp-for="@Model.Id_Tablero" aria-label="Default select example">
+  <option value="@null"></option>
+  @foreach(var item in Model.Tableros)
+  {
+    <option value="@item.Id">@item.Nombre</option>
+  }
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+@section Scripts{<partial name="_ValidationScriptsPartial"/>}
